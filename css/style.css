@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css?family=Work+Sans:100');
+
+html, body{
+    padding: 0;
+    margin: 0;
+    height: 100%
+}
+
+body {
+    display: flex;
+}
+
+.container {
+    background-color: rgb(22, 116, 160);
+    color: white;
+    margin: 0;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#timer {
+    display: flex;
+    border: 0.20em solid rgb(255, 255, 255);
+    height: 250px;
+    width: 250px;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: space-around;
+}
+
+@media (min-width: 500px){
+    #timer {
+        height: 400px;
+        width: 400px;
+    }
+}
+
+#timer #timer-text {
+    display: flex;
+    justify-content: space-between;
+    width: 350px;
+    font-family: 'Work Sans', sans-serif;
+    font-size: 7em;
+}
+
+#timer #timer-text #minutes, #timer #timer-text #seconds {
+    width: 140px;
+}
+
+#timer #timer-text #minutes {
+    margin-left: 20px;
+}
