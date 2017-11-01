@@ -7,7 +7,7 @@ html, body{
 }
 
 body {
-    background-color: rgb(22, 116, 160);   
+    background-color: rgb(0, 148, 216);   
     color: white;
 }
 
@@ -24,10 +24,12 @@ body {
     position: relative;
     padding: 1em;
     padding-top: 1.3em;
-    background-color:rgb(255, 255, 255);
+    background-color:rgb(9, 75, 105);
+    color: white;
     border: transparent;
     border-radius: 10%;
     margin-bottom: 0.5em;
+    font-size: 1em;
 }
 
 #timer-button::before {
@@ -41,18 +43,18 @@ body {
     border-radius: 50%;
     border-top-left-radius: 10%;
     border-top-right-radius: 10%;
-    background-color: rgb(214, 214, 214);
+    background-color: rgb(3, 61, 83);
 }
 
 #timer-button::after {
     content: "";
     display: inline-block;
-    background-color: rgb(214, 214, 214);
+    background-color: rgb(3, 61, 83);
     position: absolute;
     top: 100%;
-    left: 20%;
+    left: 30%;
     height: 2em;
-    width: 60%;
+    width: 40%;
     z-index: -1;
 }
 
@@ -67,13 +69,14 @@ body {
 #timer {
     display: flex;
     background-color: rgb(22, 116, 160);
-    border: 0.20em solid rgb(255, 255, 255);
+    border: 1em solid rgb(9, 75, 105);
     height: 800px;
     width: 800px;
     border-radius: 50%;
     align-items: center;
     justify-content: space-around;
     z-index: 1;
+    box-shadow: 1em 1em 1em rgb(6, 59, 83);;    
 }
 
 #timer #timer-text {
