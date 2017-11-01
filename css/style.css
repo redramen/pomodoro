@@ -7,28 +7,73 @@ html, body{
 }
 
 body {
-    display: flex;
     background-color: rgb(22, 116, 160);   
     color: white;
 }
 
 .container {
     margin: 0;
-    flex: 1;
+    padding-top: 10em;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
+#timer-button {
+    position: relative;
+    padding: 1em;
+    padding-top: 1.3em;
+    background-color:rgb(255, 255, 255);
+    border: transparent;
+    border-radius: 10%;
+    margin-bottom: 0.5em;
+}
+
+#timer-button::before {
+    content: "";
+    position: absolute;
+    display: inline-block;
+    top: 0%;
+    left: 0%;
+    height: 1em;
+    width: 100%;
+    border-radius: 50%;
+    border-top-left-radius: 10%;
+    border-top-right-radius: 10%;
+    background-color: rgb(214, 214, 214);
+}
+
+#timer-button::after {
+    content: "";
+    display: inline-block;
+    background-color: rgb(214, 214, 214);
+    position: absolute;
+    top: 100%;
+    left: 20%;
+    height: 2em;
+    width: 60%;
+    z-index: -1;
+}
+
+#timer-button:focus {
+    outline: none;
+}
+
+#timer-button:active {
+    transform: translateY(1em);
+}
+
 #timer {
     display: flex;
+    background-color: rgb(22, 116, 160);
     border: 0.20em solid rgb(255, 255, 255);
     height: 800px;
     width: 800px;
     border-radius: 50%;
     align-items: center;
     justify-content: space-around;
+    z-index: 1;
 }
 
 #timer #timer-text {

@@ -41,6 +41,7 @@ function stopTimer() {
     clearInterval(timerInterval);
     timerRunning = false;
     changeTimerButtonText();
+    timerCount = targetWorkDuration * 60;
 }
 
 function timerButtonOnClick() {
