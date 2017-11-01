@@ -1,21 +1,52 @@
-var targetWorkDuration = 25;
-var currentTime = new Date().getTime();
-var targetTime = new Date(currentTime + (targetWorkDuration * 1000 * 60)).getTime();
+var targetWorkDuration = 1;
+var timerCount = targetWorkDuration * 60;
+var timerRunning = false;
 
 function changeTimeRemaining(){
-    currentTime = new Date().getTime();
-    var timer = (targetTime - currentTime)
-    var seconds = Math.floor((timer / 1000) % 60);
-    var formattedSeconds = ("0" + seconds).slice(-2);
-    var minutes = Math.floor(((timer / 1000) - seconds) / 60);
-    if (minutes < 10){
+    if (timerRunning){
+        var seconds = timerCount % 60;
+        var minutes = (timerCount - seconds) / 60;
         minutes = ("0" + minutes).slice(-2);
-    }
+        seconds = ("0" + seconds).slice(-2);
+        timerCount--;
 
-    document.getElementById("minutes").innerHTML = minutes;
-    document.getElementById("seconds").innerHTML = formattedSeconds;
+        document.getElementById("minutes").innerHTML = minutes;
+        document.getElementById("seconds").innerHTML = seconds;
+
+        if (minutes == 0 && seconds == 0){
+            timerRunning = false;
+        }
+
+    }else{
+        clearInterval(timerInterval);
+    }
+}
+
+function changeTimerButtonText(){
+    timerButton = document.getElementById("timer-button");
+    if (timerRunning){
+        timerButton.innerHTML = "STOP";
+    }else{
+        timerButton.innerHTML = "START";
+    }
 }
 
 function startTimer() {
-    setInterval(changeTimeRemaining, 1000);
+    timerRunning = true;    
+    changeTimerButtonText();    
+    timerInterval = setInterval(changeTimeRemaining, 1000);
+}
+
+function stopTimer() {
+    clearInterval(timerInterval);
+    timerRunning = false;
+    changeTimerButtonText();
+}
+
+function timerButtonOnClick() {
+    if (timerRunning){
+        stopTimer();
+    }else{
+        startTimer();
+    }
 }

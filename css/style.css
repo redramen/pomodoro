@@ -8,14 +8,15 @@ html, body{
 
 body {
     display: flex;
+    background-color: rgb(22, 116, 160);   
+    color: white;
 }
 
 .container {
-    background-color: rgb(22, 116, 160);
-    color: white;
     margin: 0;
     flex: 1;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
 }
@@ -23,32 +24,44 @@ body {
 #timer {
     display: flex;
     border: 0.20em solid rgb(255, 255, 255);
-    height: 250px;
-    width: 250px;
+    height: 800px;
+    width: 800px;
     border-radius: 50%;
     align-items: center;
     justify-content: space-around;
 }
 
-@media (min-width: 500px){
-    #timer {
-        height: 400px;
-        width: 400px;
-    }
-}
-
 #timer #timer-text {
     display: flex;
+    align-items: center;
     justify-content: space-between;
-    width: 350px;
     font-family: 'Work Sans', sans-serif;
-    font-size: 7em;
-}
-
-#timer #timer-text #minutes, #timer #timer-text #seconds {
-    width: 140px;
+    font-size: 12em;
+    width: 800px;
+    height: 150px;
 }
 
 #timer #timer-text #minutes {
-    margin-left: 20px;
+    padding-left: 10%;
+}
+
+#timer #timer-text #colon{
+    position: absolute;
+    left: 50%;
+}
+
+#timer #timer-text #seconds {
+    padding-right: 10%;
+}
+
+@media (min-device-width: 1200px){
+    #timer {
+        width: 400px;
+        height: 400px;
+    }
+
+    #timer #timer-text {
+        font-size: 7em;
+        width: 380px;
+    }
 }
