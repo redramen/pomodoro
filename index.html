@@ -7,13 +7,24 @@
     </head>
     <body>
         <div class="container">
-            <button id="timer-button" onclick="timerButtonOnClick();">START</button>
+            <div id=buttons>
+                <button id="timer-button" onclick="timerButtonOnClick();">START</button>                     
+                <button id="settings-button" onclick="openSettingsMenu();">Settings</button> 
+            </div>           
             <div id="timer">
-                <span id="timer-text">
-                    <span id="minutes"></span>
-                    <span id="colon"> : </span>
-                    <span id="seconds"></span>
-                </span>
+                <div id="timer-body">    
+                    <span id="timer-text">
+                        <span id="minutes"></span>
+                        <span id="colon"> : </span>
+                        <span id="seconds"></span>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div id="settings">
+            <div id="settings-header">
+                <span id="settings-title">settings</span>
+                <span id="close" onclick="closeSettingsMenu();">&times;</span>
             </div>
         </div>
     </body>

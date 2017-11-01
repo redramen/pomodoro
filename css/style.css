@@ -7,11 +7,12 @@ html, body{
 }
 
 body {
-    background-color: rgb(0, 148, 216);   
-    color: white;
+    background-color: rgb(0, 112, 139);
+    font-family: 'Work Sans', sans-serif;    
 }
 
 .container {
+    color: white;    
     margin: 0;
     padding-top: 10em;
     display: flex;
@@ -20,16 +21,22 @@ body {
     justify-content: center;
 }
 
+#buttons{
+    height: 10em;
+}
+
 #timer-button {
     position: relative;
-    padding: 1em;
-    padding-top: 1.3em;
+    left: 20%;
+    line-height: 125px;    
+    font-size: 2em;
+    height: 100px;
+    width: 200px;
     background-color:rgb(9, 75, 105);
     color: white;
     border: transparent;
     border-radius: 10%;
     margin-bottom: 0.5em;
-    font-size: 1em;
 }
 
 #timer-button::before {
@@ -63,7 +70,70 @@ body {
 }
 
 #timer-button:active {
+    -webkit-transform: translateY(1em);
+    -moz-transform: translateY(1em);
+    -o-transform: translateY(1em);
+    -ms-transform: translateY(1em);
     transform: translateY(1em);
+}
+
+#settings-button {
+    position: relative;
+    left: 70%;
+    top: 70%;
+    height: 60px;
+    width: 100px;
+    margin-bottom: 1em;
+    background-color:rgb(9, 75, 105);
+    color: white;
+    border: transparent;
+    border-radius: 10%;
+    font-size: 1em;
+
+    /* rotate button */
+    -webkit-transform: rotate(40deg);
+    -moz-transform: rotate(40deg);
+    -o-transform: rotate(40deg);
+    -ms-transform: rotate(40deg);
+    transform: rotate(40deg);
+}
+
+#settings-button:focus {
+    outline: none;
+}
+
+#settings-button:active {
+    -webkit-transform: translate(-1em, 1em) rotate(40deg);
+    -moz-transform: translate(-1em, 1em) rotate(40deg);
+    -o-transform: translate(-1em, 1em) rotate(40deg);
+    -ms-transform: translate(-1em, 1em) rotate(40deg);
+    transform: translate(-1em, 1em) rotate(40deg);
+}
+
+#settings-button::before {
+    content: "";
+    position: absolute;
+    display: inline-block;
+    top: 0%;
+    left: 0%;
+    height: 1em;
+    width: 100%;
+    border-radius: 50%;
+    border-top-left-radius: 10%;
+    border-top-right-radius: 10%;
+    background-color: rgb(3, 61, 83);
+}
+
+#settings-button::after {
+    content: "";
+    display: inline-block;
+    background-color: rgb(3, 61, 83);
+    position: absolute;
+    top: 100%;
+    left: 30%;
+    height: 2em;
+    width: 40%;
+    z-index: -1;
 }
 
 #timer {
@@ -76,14 +146,14 @@ body {
     align-items: center;
     justify-content: space-around;
     z-index: 1;
-    box-shadow: 1em 1em 1em rgb(6, 59, 83);;    
+    box-shadow: 1em 1em 1em rgb(6, 59, 83);
+    margin: -3em;
 }
 
 #timer #timer-text {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    font-family: 'Work Sans', sans-serif;
     font-size: 12em;
     width: 800px;
     height: 150px;
@@ -102,14 +172,107 @@ body {
     padding-right: 10%;
 }
 
+#settings {
+    position: fixed;
+    top: 0%;
+    bottom: 0%;
+    left: 0%;
+    right: 0%;
+    background-color: white;
+    z-index: 2;
+    visibility: hidden;
+}
+
+#settings-header {
+    display: flex;
+    padding-left: 3em;
+    padding-right: 3em;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#settings-title {
+    font-size: 7em;
+    height: fit-content;
+}
+
+#close {
+    color: #aaa;
+    float: right;
+    font-size: 8em;
+    font-weight: bold;
+    height: fit-content;
+    transition-duration: 0.8s;
+    transition-property: transform;
+}
+#close:hover, #close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+
+    /* rotating the close button */
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+}
+
 @media (min-device-width: 1200px){
     #timer {
         width: 400px;
         height: 400px;
+        margin: -5em;
     }
 
     #timer #timer-text {
         font-size: 7em;
         width: 380px;
+    }
+
+    #timer-button {
+        left: 25%;
+        height: 4em;
+        width: 7em;
+        padding: 1em;
+        padding-top: 1.3em;
+        font-size: 1em;
+        line-height: 1em;      
+    }
+
+    #settings-button {
+        left: 60%;
+        top: 50%;
+        height: 3em;
+        width: 5em;
+
+        -webkit-transform: rotate(45deg);
+        -moz-transform: rotate(45deg);
+        -o-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        transform: rotate(45deg);
+    }
+
+    #settings-button:active {
+        -webkit-transform: translate(-0.5em, 1em) rotate(45deg);
+        -moz-transform: translate(-0.5em, 1em) rotate(45deg);
+        -o-transform: translate(-0.5em, 1em) rotate(45deg);
+        -ms-transform: translate(-0.5em, 1em) rotate(45deg);
+        transform: translate(-0.5em, 1em) rotate(45deg);
+    }
+
+    #settings {
+        top: 10%;
+        bottom: 10%;
+        left: 20%;
+        right: 20%;
+    }
+
+    #settings #settings-header #settings-title {
+        font-size: 4em;
+    }
+
+    #settings #settings-header .close {
+        font-size: 2em;
     }
 }

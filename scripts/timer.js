@@ -51,3 +51,13 @@ function timerButtonOnClick() {
         startTimer();
     }
 }
+
+function openSettingsMenu() {
+    settingsMenu = document.getElementById("settings");    
+    settingsMenu.style.visibility = "visible";
+}
+
+function closeSettingsMenu() {
+    settingsMenu = document.getElementById("settings");
+    settingsMenu.style.visibility = "hidden";
+}
