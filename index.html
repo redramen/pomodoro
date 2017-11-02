@@ -7,12 +7,13 @@
     </head>
     <body>
         <div class="container">
-            <div id=buttons>
-                <button id="timer-button" onclick="timerButtonOnClick();">START</button>                     
-                <button id="settings-button" onclick="openSettingsMenu();">
+            <div id=buttons class="noHighlight">
+                <button id="timer-button" class="noHighlight" onclick="timerButtonOnClick();">START</button>                     
+                <button id="settings-button" class="noHighlight" onclick="openSettingsMenu();">
                     <!-- <span class="settings-cog"/>     -->
                     settings
-                </button> 
+                </button>
+                <button id=help-menu-button class="noHighlight" onclick="openHelpMenu();">?</button>
             </div>           
             <div id="timer">
                 <div id="timer-body">    
@@ -24,30 +25,57 @@
                 </div>
             </div>
         </div>
-        <div id="settings">
-            <div id="settings-header">
-                <span id="settings-title">settings</span>
-                <span id="close" onclick="closeSettingsMenu();">&times;</span>
+        <div id="settings" class="menu">
+            <div id="settings-header" class="menu-header">
+                <span id="settings-title" class="menu-title">settings</span>
+                <span class="close noHighlight" onclick="closeSettingsMenu();">&times;</span>
             </div>
-            <div id="settings-body">
+            <div id="settings-body" class="menu-body">
                 <div class="input">
                     <span class="input-title">how many minutes should the work duration be?</span>
                     <div class="mins-input">
-                        <input class="settings-input" type="number" min="1" max="60" step="1" value="25">
+                        <input id="work-minutes-input" class="settings-input" type="number" min="1" max="60" step="1" value="25">
                         <span class="mins-suffix">mins</span>
                     </div>
                 </div>
                 <div class="input">
                     <span class="input-title">how many minutes should the rest duration be?</span>
                     <div class="mins-input">
-                        <input class="settings-input" type="number" min="1" max="60" step="1" value="5">
+                        <input id="break-minutes-input" class="settings-input" type="number" min="1" max="60" step="1" value="5">
                         <span class="mins-suffix">mins</span>
                     </div>
                 </div>
             </div>
-            <div id="settings-footer">
-                <button id="apply-settings-button">apply</button>    
+            <div id="settings-footer" class="menu-footer">
+                <button id="apply-settings-button" class="noHighlight" onclick="applySettings();">apply</button>    
             </div>        
+        </div>
+        <div id="help" class="menu">
+            <div id="help-menu-header" class="menu-header">
+                <span id="settings-title" class="menu-title">help</span>
+                <span class="close noHighlight" onclick="closeHelpMenu();">&times;</span>
+            </div>
+            <div id="help-menu-body">
+                <div id="pomodoro-description" class="menu-body-text">
+                    <div class="section-title">pomodoro?</div>
+                    <p>
+                        The Pomodoro Technique is a time management method developed by Francesco Cirillo in the late 1980s.
+                        We will break down your work into intervals separated by short breaks. By default these work intervals
+                        are 25 minutes long and the breaks are 5 minutes long each. After 4 intervals, or pomodoros, we will take
+                        a 30 minute break.
+                    </p>
+                    <p>
+                        The point of this technique is that you solely focus on work during the pomodoros, so if you are 
+                        distracted during a pomodoro, hit stop and start over! You can configure the intervals if you feel
+                        the interval lengths just aren't for you. Play around, and see what works for you.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div id="progress">
+            <span id="current-state-text">
+                currently doing nothing! click the start button to get started, or play around withthe settings first
+            </span>
         </div>
     </body>
 </html>

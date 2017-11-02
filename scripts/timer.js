@@ -1,5 +1,7 @@
-var targetWorkDuration = 1;
+var targetWorkDuration = 25;
+var targetBreakDuration = 5;
 var timerCount = targetWorkDuration * 60;
+var breakCount = targetBreakDuration * 60;
 var timerRunning = false;
 
 function changeTimeRemaining(){
@@ -14,7 +16,7 @@ function changeTimeRemaining(){
         document.getElementById("seconds").innerHTML = seconds;
 
         if (minutes == 0 && seconds == 0){
-            timerRunning = false;
+            stopTimer();
         }
 
     }else{
@@ -52,6 +54,16 @@ function timerButtonOnClick() {
     }
 }
 
+function openHelpMenu() {
+    settingsMenu = document.getElementById("help");    
+    settingsMenu.style.visibility = "visible";
+}
+
+function closeHelpMenu() {
+    settingsMenu = document.getElementById("help");
+    settingsMenu.style.visibility = "hidden";
+}
+
 function openSettingsMenu() {
     settingsMenu = document.getElementById("settings");    
     settingsMenu.style.visibility = "visible";
@@ -60,4 +72,13 @@ function openSettingsMenu() {
 function closeSettingsMenu() {
     settingsMenu = document.getElementById("settings");
     settingsMenu.style.visibility = "hidden";
+}
+
+function applySettings() {
+    targetWorkDuration = document.getElementById("work-minutes-input").value;
+    targetBreakDuration = document.getElementById("break-minutes-input").value;
+    timerCount = targetWorkDuration * 60;
+    breakCount = targetBreakDuration * 60;
+    
+    closeSettingsMenu();
 }

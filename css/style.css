@@ -9,10 +9,26 @@ html, body{
 body {
     background-color: rgb(0, 112, 139);
     font-family: 'Work Sans', sans-serif;
+    box-sizing: border-box;
     -webkit-user-select: none;        
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+    color: white;    
+}
+
+button {
+    cursor: pointer;
+    color: white;
+    border: transparent;   
+}
+
+.noHighlight {
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+}
+
+.noHighlight:focus {
+    outline: none;
 }
 
 .container {
@@ -38,10 +54,8 @@ body {
     width: 200px;
     background-color:rgb(9, 75, 105);
     color: white;
-    border: transparent;
     border-radius: 10%;
     margin-bottom: 0.5em;
-    cursor: pointer;
 }
 
 #timer-button::before {
@@ -70,10 +84,6 @@ body {
     z-index: -1;
 }
 
-#timer-button:focus {
-    outline: none;
-}
-
 #timer-button:active {
     -webkit-transform: translateY(1em);
     -moz-transform: translateY(1em);
@@ -90,11 +100,8 @@ body {
     width: 100px;
     margin-bottom: 1em;
     background-color:rgb(9, 75, 105);
-    color: white;
-    border: transparent;
     border-radius: 10%;
     font-size: 1em;
-    cursor: pointer;
 
     /* rotate button */
     -webkit-transform: rotate(40deg);
@@ -102,10 +109,6 @@ body {
     -o-transform: rotate(40deg);
     -ms-transform: rotate(40deg);
     transform: rotate(40deg);
-}
-
-#settings-button:focus {
-    outline: none;
 }
 
 #settings-button:active {
@@ -140,6 +143,17 @@ body {
     height: 2em;
     width: 40%;
     z-index: -1;
+}
+
+#help-menu-button {
+    background-color: rgb(9, 75, 105); 
+    position: fixed;
+    border-radius: 50%;
+    top: 5%;
+    left: 85%;
+    font-size: 3em;    
+    width: 2em;
+    height: 2em;
 }
 
 #timer {
@@ -178,7 +192,8 @@ body {
     padding-right: 10%;
 }
 
-#settings {
+.menu {
+    color: rgb(0, 0, 0);
     position: fixed;
     display: flex;
     flex-direction: column;
@@ -192,7 +207,7 @@ body {
     align-items: center;
 }
 
-#settings-header {
+.menu-header {
     display: flex;
     flex: 1;
     padding-left: 3em;
@@ -203,24 +218,56 @@ body {
     box-sizing: border-box;
 }
 
-#settings-title {
+.menu-title {
     font-size: 7em;
     height: fit-content;
 }
 
-#close {
+.menu-body {
+    display: flex;
+    flex-direction: column;
+    flex: 4;
+    align-items: center;
+    width: 100%;
+}
+
+#help-menu-id {
+    flex: 1;
+}
+
+#help-menu-body {
+    display: flex;
+    flex-direction: column;
+    flex: 6;
+    align-items: flex-start;
+    width: 100%;
+    padding-left: 3em;
+    padding-right: 3em;
+    box-sizing: border-box;    
+}
+
+.menu-body-text {
+    font-size: 3em;
+    overflow-y: scroll;    
+}
+
+.section-title {
+    font-size: 2em;
+}
+
+.close {
     color: #aaa;
     float: right;
+    cursor: pointer;
     font-size: 8em;
     font-weight: bold;
     height: fit-content;
     transition-duration: 0.8s;
     transition-property: transform;
 }
-#close:hover, #close:focus {
+.close:hover, #close:focus {
     color: black;
     text-decoration: none;
-    cursor: pointer;
 
     /* rotating the close button */
     -webkit-transform: rotate(90deg);
@@ -228,14 +275,6 @@ body {
     -o-transform: rotate(90deg);
     -ms-transform: rotate(90deg);
     transform: rotate(90deg);
-}
-
-#settings-body {
-    display: flex;
-    flex-direction: column;
-    flex: 4;
-    align-items: center;
-    width: 100%;
 }
 
 .input {
@@ -260,7 +299,7 @@ body {
     font-size: 4em;
 }
 
-#settings-footer {
+.menu-footer {
     padding: 1em;
 }
 
@@ -270,9 +309,25 @@ body {
     border-radius: 10%;
     box-sizing: border-box;
     color: rgb(255, 255, 255);
-    font-size: 2em;
+    font-size: 4em;
     padding: 0.5em;
     width: fit-content;
+}
+
+#apply-settings-button:hover {
+    background-color: rgb(109, 57, 57);
+    cursor: pointer;
+}
+
+#progress {
+    position: relative;
+    top: 15%;
+    width: 100%;
+    text-align: center;
+}
+
+#current-state-text {
+    font-size: 2em;
 }
 
 @media (min-device-width: 1200px){
@@ -318,19 +373,31 @@ body {
         transform: translate(-0.5em, 1em) rotate(45deg);
     }
 
-    #settings {
+    #help-menu-button {
+        top: 5%;
+        left: 90%;
+        font-size: 2em;    
+        width: 2em;
+        height: 2em;
+    }
+
+    .menu {
         top: 10%;
         bottom: 10%;
         left: 20%;
         right: 20%;
     }
 
-    #settings #settings-header #settings-title {
+    .menu-title {
         font-size: 4em;
     }
 
-    #settings #settings-header .close {
+    .menu-body-text {
         font-size: 2em;
+    }
+
+    .close {
+        font-size: 3em;
     }
 
     .input {
@@ -344,5 +411,14 @@ body {
 
     .settings-input {
         font-size: 2em;
+    }
+
+    #apply-settings-button {
+        font-size: 2em;
+        padding: 0.5em;
+    }
+
+    #progress {
+        top: 20%;
     }
 }
