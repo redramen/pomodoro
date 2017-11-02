@@ -9,7 +9,10 @@
         <div class="container">
             <div id=buttons>
                 <button id="timer-button" onclick="timerButtonOnClick();">START</button>                     
-                <button id="settings-button" onclick="openSettingsMenu();">Settings</button> 
+                <button id="settings-button" onclick="openSettingsMenu();">
+                    <!-- <span class="settings-cog"/>     -->
+                    settings
+                </button> 
             </div>           
             <div id="timer">
                 <div id="timer-body">    
@@ -26,6 +29,25 @@
                 <span id="settings-title">settings</span>
                 <span id="close" onclick="closeSettingsMenu();">&times;</span>
             </div>
+            <div id="settings-body">
+                <div class="input">
+                    <span class="input-title">how many minutes should the work duration be?</span>
+                    <div class="mins-input">
+                        <input class="settings-input" type="number" min="1" max="60" step="1" value="25">
+                        <span class="mins-suffix">mins</span>
+                    </div>
+                </div>
+                <div class="input">
+                    <span class="input-title">how many minutes should the rest duration be?</span>
+                    <div class="mins-input">
+                        <input class="settings-input" type="number" min="1" max="60" step="1" value="5">
+                        <span class="mins-suffix">mins</span>
+                    </div>
+                </div>
+            </div>
+            <div id="settings-footer">
+                <button id="apply-settings-button">apply</button>    
+            </div>        
         </div>
     </body>
 </html>
