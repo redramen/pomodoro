@@ -3,6 +3,59 @@ var targetBreakDuration = 5;
 var timerCount = targetWorkDuration * 60;
 var breakCount = targetBreakDuration * 60;
 var timerRunning = false;
+var pomodoroCounter = 0;
+var isPomodoroActive = false;
+var status = "";
+
+function updateStatusText() {
+    statusText = document.getElementById("current-status-text");
+    
+    if (pomodoroCounter <= 4){
+        if (isPomodoroActive == true){
+            status = "currently working! focus!"
+        }else{
+            status = "currently on break! take it easy, stretch, get some water. you deserve it."
+        }
+    }else{
+        status = "you're all done! feeling accomplished?"
+    }
+
+    statusText.innerHTML = status;
+}
+
+function updatePomodoroCounterText() {
+    pomodoroCounterText = document.getElementById("pomodoro-counter");
+    if (pomodoroCounter == 0){
+        pomodoroCounterText.innerHTML = "";
+    }else{
+        pomodoroCounterText.innerHTML = "currently on pomodoro # " + pomodoroCounter;
+    }
+}
+
+function runBreakTimer(){
+    var seconds = breakCount % 60;
+    var minutes = (breakCount - seconds) / 60;
+    minutes = ("0" + minutes).slice(-2);
+    seconds = ("0" + seconds).slice(-2);
+    breakCount--;
+
+    document.getElementById("minutes").innerHTML = minutes;
+    document.getElementById("seconds").innerHTML = seconds;
+
+    if (minutes == 0 && seconds == 0){
+        clearInterval(breakInterval)
+        startTimer();
+    }
+}
+
+function startBreak() {
+    clearInterval(timerInterval);
+    timerRunning = false;
+    breakCount = targetBreakDuration * 60;
+    breakInterval = setInterval(runBreakTimer, 1000);
+    isPomodoroActive = false;
+    updateStatusText();
+}
 
 function changeTimeRemaining(){
     if (timerRunning){
@@ -15,8 +68,14 @@ function changeTimeRemaining(){
         document.getElementById("minutes").innerHTML = minutes;
         document.getElementById("seconds").innerHTML = seconds;
 
+        console.log("work")
         if (minutes == 0 && seconds == 0){
-            stopTimer();
+            console.log("break")
+            if(pomodoroCounter < 4){
+                startBreak();
+            }else{
+                stopTimer();
+            }
         }
 
     }else{
@@ -34,16 +93,26 @@ function changeTimerButtonText(){
 }
 
 function startTimer() {
-    timerRunning = true;    
+    timerCount = targetWorkDuration * 60;
+    timerRunning = true;
+    pomodoroCounter++;
+    isPomodoroActive = true;
+    updateStatusText();
     changeTimerButtonText();    
     timerInterval = setInterval(changeTimeRemaining, 1000);
+    updatePomodoroCounterText();
 }
 
 function stopTimer() {
+    pomodoroCounter++;
     clearInterval(timerInterval);
     timerRunning = false;
+    isPomodoroActive = false;
+    updateStatusText();
     changeTimerButtonText();
+    pomodoroCounter = 0;
     timerCount = targetWorkDuration * 60;
+    updatePomodoroCounterText();
 }
 
 function timerButtonOnClick() {

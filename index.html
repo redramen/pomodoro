@@ -32,14 +32,14 @@
             </div>
             <div id="settings-body" class="menu-body">
                 <div class="input">
-                    <span class="input-title">how many minutes should the work duration be?</span>
+                    <span class="input-title">work duration</span>
                     <div class="mins-input">
                         <input id="work-minutes-input" class="settings-input" type="number" min="1" max="60" step="1" value="25">
                         <span class="mins-suffix">mins</span>
                     </div>
                 </div>
                 <div class="input">
-                    <span class="input-title">how many minutes should the rest duration be?</span>
+                    <span class="input-title">break duration</span>
                     <div class="mins-input">
                         <input id="break-minutes-input" class="settings-input" type="number" min="1" max="60" step="1" value="5">
                         <span class="mins-suffix">mins</span>
@@ -61,8 +61,9 @@
                     <p>
                         The Pomodoro Technique is a time management method developed by Francesco Cirillo in the late 1980s.
                         We will break down your work into intervals separated by short breaks. By default these work intervals
-                        are 25 minutes long and the breaks are 5 minutes long each. After 4 intervals, or pomodoros, we will take
-                        a 30 minute break.
+                        are 25 minutes long and the breaks are 5 minutes long each. After 4 intervals, or pomodoros, the timer
+                        will stop. if you are not complete with your work, feel free to start up the timer again, however it
+                        is encouraged that you take a 15-30 minute break.
                     </p>
                     <p>
                         The point of this technique is that you solely focus on work during the pomodoros, so if you are 
@@ -73,8 +74,9 @@
             </div>
         </div>
         <div id="progress">
-            <span id="current-state-text">
-                currently doing nothing! click the start button to get started, or play around withthe settings first
+            <span id="pomodoro-counter"></span>
+            <span id="current-status-text">
+                currently doing nothing! click the start button to get started, or play around with the settings first
             </span>
         </div>
     </body>

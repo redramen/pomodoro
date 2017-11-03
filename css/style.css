@@ -156,6 +156,10 @@ button {
     height: 2em;
 }
 
+#help-menu-button:hover {
+    background-color: rgb(25, 49, 59);
+}
+
 #timer {
     display: flex;
     background-color: rgb(22, 116, 160);
@@ -280,19 +284,19 @@ button {
 .input {
     width: 100%;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     box-sizing: border-box;
-    padding: 1em;
+    padding: 2em;
 }
 
 .input .input-title {
     display: flex;
     align-items: flex-end;
-    font-size: 2em;
+    font-size: 3em;
 }
 
 .input .mins-input .mins-suffix {
-    font-size: 2em;
+    font-size: 3em;
 }
 
 .settings-input {
@@ -304,7 +308,7 @@ button {
 }
 
 #apply-settings-button {
-    background-color: rgb(148, 75, 75);
+    background-color: rgb(66, 138, 206);
     border: transparent;
     border-radius: 10%;
     box-sizing: border-box;
@@ -315,19 +319,29 @@ button {
 }
 
 #apply-settings-button:hover {
-    background-color: rgb(109, 57, 57);
+    background-color: rgb(58, 117, 168);
     cursor: pointer;
 }
 
 #progress {
+    display: flex;
+    flex-direction: column;
     position: relative;
     top: 15%;
     width: 100%;
     text-align: center;
 }
 
-#current-state-text {
+#progress span{
+    padding: 0.5em;
+}
+
+#pomodoro-counter {
     font-size: 2em;
+}
+
+#current-status-text {
+    font-size: 3em;
 }
 
 @media (min-device-width: 1200px){
@@ -420,5 +434,9 @@ button {
 
     #progress {
         top: 20%;
+    }
+
+    #current-status-text {
+        font-size: 2em;
     }
 }
