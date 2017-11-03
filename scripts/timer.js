@@ -14,7 +14,11 @@ function updateStatusText() {
         if (isPomodoroActive == true){
             status = "currently working! focus!"
         }else{
-            status = "currently on break! take it easy, stretch, get some water. you deserve it."
+            if (timerRunning){
+                status = "currently on break! take it easy, stretch, get some water. you deserve it."
+            }else{
+                status = "pomodoro cancelled"
+            }
         }
     }else{
         status = "you're all done! feeling accomplished?"
