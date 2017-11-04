@@ -12,12 +12,14 @@ function updateStatusText() {
     
     if (pomodoroCounter <= 4){
         if (isPomodoroActive == true){
-            status = "currently working! focus!"
+            status = "currently working! focus!";
         }else{
             if (timerRunning){
-                status = "currently on break! take it easy, stretch, get some water. you deserve it."
+                console.log("timer running");
+                status = "currently on break! take it easy, stretch, get some water. you deserve it.";
             }else{
-                status = "pomodoro cancelled"
+                console.log("timer not running");
+                status = "pomodoro cancelled";
             }
         }
     }else{
@@ -54,7 +56,6 @@ function runBreakTimer(){
 
 function startBreak() {
     clearInterval(timerInterval);
-    timerRunning = false;
     breakCount = targetBreakDuration * 60;
     breakInterval = setInterval(runBreakTimer, 1000);
     isPomodoroActive = false;
@@ -110,6 +111,7 @@ function startTimer() {
 function stopTimer() {
     pomodoroCounter++;
     clearInterval(timerInterval);
+    clearInterval(breakInterval);
     timerRunning = false;
     isPomodoroActive = false;
     updateStatusText();
