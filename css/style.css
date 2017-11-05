@@ -57,6 +57,7 @@ button {
     color: white;
     border-radius: 10%;
     margin-bottom: 0.5em;
+    box-shadow: 0 0 3em rgb(6, 59, 83);
 }
 
 #timer-button::before {
@@ -96,13 +97,14 @@ button {
 #settings-button {
     position: relative;
     left: 70%;
-    top: 70%;
+    top: 85%;
     height: 60px;
     width: 100px;
     margin-bottom: 1em;
     background-color:rgb(9, 75, 105);
     border-radius: 10%;
     font-size: 1em;
+    box-shadow: 0 0 3em rgb(6, 59, 83);
 
     /* rotate button */
     -webkit-transform: rotate(40deg);
@@ -126,7 +128,7 @@ button {
     display: inline-block;
     top: 0%;
     left: 0%;
-    height: 1em;
+    height: 0.5em;
     width: 100%;
     border-radius: 50%;
     border-top-left-radius: 10%;
@@ -144,6 +146,17 @@ button {
     height: 2em;
     width: 40%;
     z-index: -1;
+}
+
+.gear-icon {
+    position: absolute;
+    left: 37%;
+    bottom: 30%;
+    height: 20px;
+    width: 20px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 50%;
+    border: transparent;
 }
 
 #help-menu-button {
@@ -171,7 +184,7 @@ button {
     align-items: center;
     justify-content: space-around;
     z-index: 0;
-    box-shadow: 1em 1em 1em rgb(6, 59, 83);
+    box-shadow: 0 0 3em rgb(6, 59, 83);
     margin: -3em;
 }
 
@@ -381,7 +394,7 @@ button {
 
     #settings-button {
         left: 60%;
-        top: 50%;
+        top: 60%;
         height: 3em;
         width: 5em;
 
