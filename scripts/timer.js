@@ -129,22 +129,36 @@ function timerButtonOnClick() {
     }
 }
 
+function showOverlay() {
+    overlay = document.getElementById("dark-overlay");
+    overlay.style.visibility = "visible";
+}
+
+function hideOverlay() {
+    overlay = document.getElementById("dark-overlay");
+    overlay.style.visibility = "hidden";
+}
+
 function openHelpMenu() {
+    showOverlay();    
     settingsMenu = document.getElementById("help");    
     settingsMenu.style.visibility = "visible";
 }
 
 function closeHelpMenu() {
+    hideOverlay();
     settingsMenu = document.getElementById("help");
     settingsMenu.style.visibility = "hidden";
 }
 
 function openSettingsMenu() {
+    showOverlay();    
     settingsMenu = document.getElementById("settings");    
     settingsMenu.style.visibility = "visible";
 }
 
 function closeSettingsMenu() {
+    hideOverlay();    
     settingsMenu = document.getElementById("settings");
     settingsMenu.style.visibility = "hidden";
 }

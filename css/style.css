@@ -170,7 +170,7 @@ button {
     border-radius: 50%;
     align-items: center;
     justify-content: space-around;
-    z-index: 1;
+    z-index: 0;
     box-shadow: 1em 1em 1em rgb(6, 59, 83);
     margin: -3em;
 }
@@ -195,6 +195,17 @@ button {
 
 #timer #timer-text #seconds {
     padding-right: 10%;
+}
+
+.dark-overlay {
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.808);
+    top: 0%;
+    bottom: 0%;
+    left: 0%;
+    right: 0%;
+    z-index: 1; 
+    visibility: hidden;
 }
 
 .menu {
@@ -339,7 +350,7 @@ button {
 }
 
 #pomodoro-counter {
-    font-size: 2em;
+    font-size: 3em;
 }
 
 #current-status-text {
@@ -398,7 +409,7 @@ button {
     }
 
     .menu {
-        top: 10%;
+        top: 5%;
         bottom: 10%;
         left: 20%;
         right: 20%;
@@ -432,6 +443,10 @@ button {
     #apply-settings-button {
         font-size: 2em;
         padding: 0.5em;
+    }
+
+    #pomodoro-counter {
+        font-size: 1.5em;
     }
 
     #current-status-text {
