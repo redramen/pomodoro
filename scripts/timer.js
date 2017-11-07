@@ -41,8 +41,6 @@ function updatePomodoroCounterText() {
 }
 
 function runBreakTimer(){
-    console.log("breakTimer");
-    
     var seconds = breakCount % 60;
     var minutes = (breakCount - seconds) / 60;
     minutes = ("0" + minutes).slice(-2);
@@ -60,7 +58,6 @@ function runBreakTimer(){
 }
 
 function startBreak() {
-    console.log("in startBreak");
     breakCount = targetBreakDuration * 60;
     breakInterval = setInterval(runBreakTimer, 1000);
     isPomodoroActive = false;
@@ -168,6 +165,7 @@ function stopTimer() {
 }
 
 function timerButtonOnClick() {
+    notificationSound.play();    
     if (timerRunning){
         stopTimer();
     }else{

@@ -308,6 +308,7 @@ button {
 
 .input {
     width: 100%;
+    font-size: 1.5em;
     display: flex;
     justify-content: space-between;
     box-sizing: border-box;
@@ -366,7 +367,7 @@ button {
 }
 
 #switch-text {
-    font-size: 3em;
+    font-size: 4em;
 }
 
 #switch-button {
@@ -471,6 +472,7 @@ button {
     }
 
     .input {
+        font-size: 1em;        
         padding-top: 1em;
         padding-bottom: 1em; 
     }
