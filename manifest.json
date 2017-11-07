@@ -1,13 +1,15 @@
 {
     "name": "Pomodoro",
+    "background-color": "#006e89",
+    "description": "a pomodoro counter to help you focus on work",
+    "start_url": "/index.html",
+    "display": "standalone",
+    "orientation": "portrait",
     "icons": [
       {
         "src": "pomodoro-icon.png",
         "sizes": "192x192",
         "type": "image/png"
       }
-    ],
-    "start_url": "/index.html",
-    "display": "standalone",
-    "orientation": "portrait"
+    ]
   }
