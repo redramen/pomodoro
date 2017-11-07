@@ -66,7 +66,7 @@ button {
     display: inline-block;
     top: 0%;
     left: 0%;
-    height: 1em;
+    height: 0.5em;
     width: 100%;
     border-radius: 50%;
     border-top-left-radius: 10%;
@@ -97,7 +97,7 @@ button {
 #settings-button {
     position: relative;
     left: 70%;
-    top: 85%;
+    top: 80%;
     height: 60px;
     width: 100px;
     margin-bottom: 1em;
@@ -332,8 +332,7 @@ button {
     padding: 1em;
 }
 
-#apply-settings-button {
-    background-color: rgb(66, 138, 206);
+.thicc-button {
     border: transparent;
     border-radius: 10%;
     box-sizing: border-box;
@@ -343,9 +342,39 @@ button {
     width: fit-content;
 }
 
+.thicc-button:hover {
+    cursor: pointer;
+}
+
+#apply-settings-button {
+    background-color: rgb(66, 138, 206);
+}
+
 #apply-settings-button:hover {
     background-color: rgb(58, 117, 168);
-    cursor: pointer;
+}
+
+#switch-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    top: 20%;
+    bottom: 50%;
+    right: 5%;
+    left: 5%;
+    text-align: center;
+}
+
+#switch-text {
+    font-size: 3em;
+}
+
+#switch-button {
+    background-color: rgb(66, 138, 206);
+}
+
+#switch-button:hover {
+    background-color: rgb(58, 117, 168);
 }
 
 #progress {
@@ -393,16 +422,16 @@ button {
     }
 
     #settings-button {
-        left: 60%;
+        left: 65%;
         top: 60%;
         height: 3em;
         width: 5em;
 
-        -webkit-transform: rotate(45deg);
-        -moz-transform: rotate(45deg);
-        -o-transform: rotate(45deg);
-        -ms-transform: rotate(45deg);
-        transform: rotate(45deg);
+        -webkit-transform: rotate(50deg);
+        -moz-transform: rotate(50deg);
+        -o-transform: rotate(50deg);
+        -ms-transform: rotate(50deg);
+        transform: rotate(50deg);
     }
 
     #settings-button:active {
@@ -453,13 +482,27 @@ button {
         font-size: 2em;
     }
 
-    #apply-settings-button {
+    .thicc-button {
         font-size: 2em;
         padding: 0.5em;
     }
 
     #pomodoro-counter {
         font-size: 1.5em;
+    }
+
+    #switch-menu {
+        top: 20%;
+        left: 30%;
+        right: 30%;
+    }
+
+    #switch-menu {
+        font-size: 0.5em;
+    }
+
+    #switch-button {
+        font-size: 3em;
     }
 
     #current-status-text {

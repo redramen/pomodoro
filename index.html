@@ -4,6 +4,8 @@
         <link rel="stylesheet" href="css/style.css">
         <title>Pomodoro!</title>
         <script type="text/javascript" src="scripts/timer.js"></script>
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
     </head>
     <body>
         <div class="dark-overlay" id="dark-overlay"></div>
@@ -11,7 +13,8 @@
             <div id=buttons class="noHighlight">
                 <button id="timer-button" class="noHighlight" onclick="timerButtonOnClick();">START</button>                     
                 <button id="settings-button" class="noHighlight" onclick="openSettingsMenu();">
-                    <div class="gear-icon"></div>
+                    <!-- <div class="gear-icon"></div> -->
+                    settings
                 </button>
                 <button id=help-menu-button class="noHighlight" onclick="openHelpMenu();">?</button>
             </div>           
@@ -47,7 +50,7 @@
                 </div>
             </div>
             <div id="settings-footer" class="menu-footer">
-                <button id="apply-settings-button" class="noHighlight" onclick="applySettings();">apply</button>    
+                <button id="apply-settings-button" class="noHighlight thicc-button" onclick="applySettings();">apply</button>    
             </div>        
         </div>
         <div id="help" class="menu">
@@ -72,6 +75,10 @@
                     </p>
                 </div>
             </div>
+        </div>
+        <div id="switch-menu" class="menu">
+            <span id="switch-text">switching</span>
+            <button id="switch-button" class="noHighlight thicc-button" onclick="switchButtonOnClick();">okay</button>
         </div>
         <div id="progress">
             <span id="pomodoro-counter"></span>

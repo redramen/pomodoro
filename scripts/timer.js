@@ -6,6 +6,8 @@ var timerRunning = false;
 var pomodoroCounter = 0;
 var isPomodoroActive = false;
 var status = "";
+var breakOrWork = "";
+var notificationSound = new Audio("./audio/pop-sound.mp3")
 
 function updateStatusText() {
     statusText = document.getElementById("current-status-text");
@@ -39,6 +41,8 @@ function updatePomodoroCounterText() {
 }
 
 function runBreakTimer(){
+    console.log("breakTimer");
+    
     var seconds = breakCount % 60;
     var minutes = (breakCount - seconds) / 60;
     minutes = ("0" + minutes).slice(-2);
@@ -50,16 +54,46 @@ function runBreakTimer(){
 
     if (minutes == 0 && seconds == 0){
         clearInterval(breakInterval)
-        startTimer();
+        breakOrWork = "work";
+        showSwitchMenu();
     }
 }
 
 function startBreak() {
-    clearInterval(timerInterval);
+    console.log("in startBreak");
     breakCount = targetBreakDuration * 60;
     breakInterval = setInterval(runBreakTimer, 1000);
     isPomodoroActive = false;
     updateStatusText();
+}
+
+function switchButtonOnClick() {
+    switchMenu = document.getElementById("switch-menu");
+    switchMenu.style.visibility = "hidden";
+    hideOverlay();
+
+    if (breakOrWork == "break"){
+        startBreak();
+    }else if (breakOrWork == "work"){
+        startTimer();
+    }
+}
+
+function showSwitchMenu() {
+    notificationSound.play();
+    switchMenu = document.getElementById("switch-menu");
+    switchText = document.getElementById("switch-text");
+
+    console.log(breakOrWork);
+
+    if (breakOrWork == "break"){
+        switchText.innerHTML = "pomodoro completed! time for a break!"
+    }else if (breakOrWork == "work"){
+        switchText.innerHTML = "break completed! time to get back to work!"
+    }
+
+    switchMenu.style.visibility = "visible";
+    showOverlay();   
 }
 
 function changeTimeRemaining(){
@@ -75,9 +109,11 @@ function changeTimeRemaining(){
 
         console.log("work")
         if (minutes == 0 && seconds == 0){
-            console.log("break")
+            clearInterval(timerInterval);
+            breakOrWork = "break";
+
             if(pomodoroCounter < 4){
-                startBreak();
+                showSwitchMenu();
             }else{
                 stopTimer();
             }
@@ -111,7 +147,11 @@ function startTimer() {
 function stopTimer() {
     pomodoroCounter++;
     clearInterval(timerInterval);
-    clearInterval(breakInterval);
+    try{
+        clearInterval(breakInterval);
+    }catch(err){
+        console.log("no breakInterval yet");
+    }
     timerRunning = false;
     isPomodoroActive = false;
     updateStatusText();
