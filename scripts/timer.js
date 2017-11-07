@@ -76,6 +76,8 @@ function switchButtonOnClick() {
         startBreak();
     }else if (breakOrWork == "work"){
         startTimer();
+    }else{
+        stopTimer();
     }
 }
 
@@ -90,6 +92,8 @@ function showSwitchMenu() {
         switchText.innerHTML = "pomodoro completed! time for a break!"
     }else if (breakOrWork == "work"){
         switchText.innerHTML = "break completed! time to get back to work!"
+    }else{
+        switchText.innerHTML = "all pomodoros complete! if you have more work to do, take a 15-30 minute break before starting again."
     }
 
     switchMenu.style.visibility = "visible";
@@ -115,7 +119,9 @@ function changeTimeRemaining(){
             if(pomodoroCounter < 4){
                 showSwitchMenu();
             }else{
-                stopTimer();
+                breakOrWork = "complete";
+                showSwitchMenu();
+                // stopTimer();
             }
         }
 
