@@ -1,6 +1,6 @@
 {
     "name": "Pomodoro",
-    "background-color": "#006e89",
+    "background-color": "#2192ac",
     "description": "a pomodoro counter to help you focus on work",
     "start_url": "/index.html",
     "display": "standalone",
